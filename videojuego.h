@@ -14,6 +14,8 @@ public:
     void agregarPersonaje(const Personaje&);
     void mostrar();
 
+    void guardar();
+
     friend Videojuego& operator<<(Videojuego &videojuego, const Personaje &personaje)
     {
         videojuego.agregarPersonaje(personaje);
