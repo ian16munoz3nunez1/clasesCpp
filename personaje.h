@@ -16,6 +16,16 @@ public:
     Personaje();
     Personaje(const string&, const string&, float, int);
 
+    void setNombre(const string&);
+    void setTipo(const string&);
+    void setFuerza(float);
+    void setSalud(int);
+
+    string getNombre();
+    string getTipo();
+    float getFuerza();
+    int getSalud();
+
 private:
     void mayusculas(string&);
 
