@@ -1,10 +1,12 @@
 #include <iostream>
+#include "videojuego.h"
 #include "personaje.h"
 
 using namespace std;
 
 int main()
 {
+    Videojuego vj;
     Personaje p01 = Personaje("personaje1", "guerrero", 16.28, 40);
     Personaje p02 = Personaje();
 
@@ -13,15 +15,10 @@ int main()
     p02.setFuerza(8.28);
     p02.setSalud(57);
 
-    cout << "Nombre: " << p01.getNombre() << endl;
-    cout << "Tipo: " << p01.getTipo() << endl;
-    cout << "Fuerza: " << p01.getFuerza() << endl;
-    cout << "Salud: " << p01.getSalud() << endl;
-    cout << endl;
-    cout << "Nombre: " << p02.getNombre() << endl;
-    cout << "Tipo: " << p02.getTipo() << endl;
-    cout << "Fuerza: " << p02.getFuerza() << endl;
-    cout << "Salud: " << p02.getSalud() << endl;
+    vj.agregarPersonaje(p01);
+    vj.agregarPersonaje(p02);
+
+    vj.mostrar();
 
     return 0;
 }
