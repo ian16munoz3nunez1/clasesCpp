@@ -45,3 +45,43 @@ void Videojuego::guardar()
     archivo.close();
 }
 
+void Videojuego::abrir()
+{
+    ifstream archivo("personajes.txt");
+
+    if(archivo.is_open())
+    {
+        Personaje personaje;
+        string cadena;
+        float fuerza;
+        int salud;
+
+        while(true)
+        {
+            getline(archivo, cadena);
+            personaje.setNombre(cadena);
+
+            getline(archivo, cadena);
+            personaje.setTipo(cadena);
+
+            if(archivo.eof()) break;
+
+            getline(archivo, cadena);
+            fuerza = stof(cadena);
+            personaje.setFuerza(fuerza);
+
+            getline(archivo, cadena);
+            salud = stoi(cadena);
+            personaje.setSalud(salud);
+
+            agregarPersonaje(personaje);
+        }
+
+        cout << "DATOS CARGADOS" << endl;
+    }
+    else
+        cout << "ERROR AL ABRIR LOS DATOS" << endl;
+
+    archivo.close();
+}
+

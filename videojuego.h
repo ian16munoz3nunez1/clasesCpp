@@ -15,6 +15,7 @@ public:
     void mostrar();
 
     void guardar();
+    void abrir();
 
     friend Videojuego& operator<<(Videojuego &videojuego, const Personaje &personaje)
     {
