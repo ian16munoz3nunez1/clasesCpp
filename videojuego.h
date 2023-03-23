@@ -14,6 +14,13 @@ public:
     void agregarPersonaje(const Personaje&);
     void mostrar();
 
+    friend Videojuego& operator<<(Videojuego &videojuego, const Personaje &personaje)
+    {
+        videojuego.agregarPersonaje(personaje);
+
+        return videojuego;
+    }
+
 };
 
 #endif//VIDEOJUEGO_H

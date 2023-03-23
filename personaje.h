@@ -26,6 +26,34 @@ public:
     float getFuerza();
     int getSalud();
 
+    friend ostream& operator<<(ostream &out, const Personaje &personaje)
+    {
+        out << "Nombre: " << personaje.nombre << endl;
+        out << "Tipo: " << personaje.tipo << endl;
+        out << "Fuerza: " << personaje.fuerza << endl;
+        out << "Salud: " << personaje.salud << endl;
+        out << endl;
+
+        return out;
+    }
+
+    friend istream& operator>>(istream &in, Personaje &personaje)
+    {
+        cout << "Ingresa el nombre del personaje: ";
+        getline(in, personaje.nombre);
+        cout << "Ingresa el tipo de personaje: ";
+        getline(in, personaje.tipo);
+        cout << "Ingresa la fuerza del personaje: ";
+        in >> personaje.fuerza;
+        cout << "Ingresa la salud del personaje: ";
+        in >> personaje.salud; in.ignore();
+
+        personaje.mayusculas(personaje.nombre);
+        personaje.mayusculas(personaje.tipo);
+
+        return in;
+    }
+
 private:
     void mayusculas(string&);
 
